@@ -1,25 +1,13 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "ChooseNextWaypoint.h"
+#include "BehaviorTree/BlackboardComponent.h"
 
 EBTNodeResult::Type UChooseNextWaypoint::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Execute Task Successfully Run."))
+	auto BlackboardComp = OwnerComp.GetBlackboardComponent();
+	auto Index = BlackboardComp->GetValueAsInt(IndexKey.SelectedKeyName);
+	UE_LOG(LogTemp, Warning, TEXT("Comp Index = %i"), Index);
 
 	return EBTNodeResult::Succeeded;
-}
-
-
-void UChooseNextWaypoint::GetPatrolPoints()
-{
-
-}
-
-void UChooseNextWaypoint::SetNextWaypoint()
-{
-}
-
-void UChooseNextWaypoint::CycleIndex()
-{
-
 }

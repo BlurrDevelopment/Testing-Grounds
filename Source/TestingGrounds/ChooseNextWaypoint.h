@@ -17,13 +17,8 @@ class TESTINGGROUNDS_API UChooseNextWaypoint : public UBTTaskNode
 public:
 	virtual EBTNodeResult::Type ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory) override;
 	
-	
-
-private:
-	void GetPatrolPoints();
-
-	void SetNextWaypoint();
-
-	void CycleIndex();
+protected:
+	UPROPERTY(EditAnywhere, Category = "Blackboard")
+	struct FBlackboardKeySelector IndexKey;
 	
 };
